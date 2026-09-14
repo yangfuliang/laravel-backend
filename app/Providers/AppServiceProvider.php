@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Godruoyi\Snowflake\Snowflake;
+use Godruoyi\Snowflake\SwooleSequenceResolver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton('snowflake', static function () {
+            return (new Snowflake())->setSequenceResolver(new SwooleSequenceResolver());
+        });
     }
 
     /**
