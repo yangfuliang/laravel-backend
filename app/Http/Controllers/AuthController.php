@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Cache;
-
 class AuthController extends Controller
 {
     public function captcha()
@@ -18,6 +16,6 @@ class AuthController extends Controller
 
     public function logout()
     {
-        return [];
+
     }
 }
